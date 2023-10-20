@@ -1,13 +1,15 @@
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-export default function Button(props) {
+export default function Button({ backgroundColor, text, ...rest }) {
   return (
     <Pressable
       style={[
         styles.button,
-        { backgroundColor: props.backgroundColor || '#2DB8BD' }
-      ]}>
-      <Text style={styles.text}>{props.text}</Text>
+        { backgroundColor: backgroundColor || '#2DB8BD' }
+      ]}
+      {...rest}
+    >
+      <Text style={styles.text}>{text}</Text>
     </Pressable>
   );
 }
