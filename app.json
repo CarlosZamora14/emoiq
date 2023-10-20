@@ -25,6 +25,24 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "fonts": [
+      {
+        "name": "gg-sans-Bold",
+        "asset": "./assets/fonts/gg-sans-Bold.ttf"
+      },
+      {
+        "name": "gg-sans-Semibold",
+        "asset": "./assets/fonts/gg-sans-Semibold.ttf"
+      },
+      {
+        "name": "gg-sans-Medium",
+        "asset": "./assets/fonts/gg-sans-Medium.ttf"
+      },
+      {
+        "name": "gg-sans-Regular",
+        "asset": "./assets/fonts/gg-sans-Regular.ttf"
+      }
+    ]
   }
 }
