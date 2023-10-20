@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Pressable, Image, View } from 'react-native';
+import { StyleSheet, Text, Pressable, View } from 'react-native';
 
 export default function OAuthButton({ borderColor, text, Logo, color, ...rest }) {
   return (
@@ -25,7 +25,7 @@ export default function OAuthButton({ borderColor, text, Logo, color, ...rest })
 
 const styles = StyleSheet.create({
   button: {
-    width: '100%',
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 12,

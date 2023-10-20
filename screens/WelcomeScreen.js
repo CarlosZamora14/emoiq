@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Pressable, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
 
-import backgroundImage from '../assets/background.png';
-
 // Components
 import Button from '../components/Button.js';
+
+// Assets
+import backgroundImage from '../assets/background.png';
 
 export default function WelcomeScreen(props) {
   return (
@@ -37,7 +38,7 @@ export default function WelcomeScreen(props) {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <Button text='Iniciar sesión' />
+        <Button text='Iniciar sesión' onPress={() => props.navigation.navigate('Login')}/>
         <Button text='Registrarse' backgroundColor='#002D52' />
       </View>
 

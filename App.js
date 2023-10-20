@@ -1,12 +1,15 @@
 import { useCallback } from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
 import WelcomeScreen from './screens/WelcomeScreen.js';
+import LoginScreen from './screens/LoginScreen.js';
 
 SplashScreen.preventAutoHideAsync();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,6 +30,15 @@ export default function App() {
   }
 
   return (
-    <WelcomeScreen onLayout={onLayoutRootView} />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Welcome'>
+        <Stack.Screen name='Welcome'>
+          {props => <WelcomeScreen {...props} onLayout={onLayoutRootView} />}
+        </Stack.Screen>
+        <Stack.Screen name='Login'>
+          {props => <LoginScreen {...props} onLayout={onLayoutRootView} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
