@@ -6,7 +6,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
 import WelcomeScreen from './screens/WelcomeScreen.js';
-import LoginScreen from './screens/LoginScreen.js';
 
 SplashScreen.preventAutoHideAsync();
 const Stack = createNativeStackNavigator();
@@ -32,13 +31,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Welcome'>
-        <Stack.Screen name='Welcome'>
+        <Stack.Screen name='Welcome' options={{ headerShown: false }}>
           {props => <WelcomeScreen {...props} onLayout={onLayoutRootView} />}
         </Stack.Screen>
-        <Stack.Screen name='Login'>
-          {props => <LoginScreen {...props} onLayout={onLayoutRootView} />}
-        </Stack.Screen>
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer >
   );
 }
