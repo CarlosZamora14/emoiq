@@ -1,21 +1,13 @@
 import { StyleSheet, Text, Pressable, View } from 'react-native';
 
-export default function OAuthButton({ borderColor, text, Logo, color, ...rest }) {
+export default function OAuthButton({ borderColor, text, Logo, color }) {
   return (
     <Pressable
-      style={[
-        styles.button,
-        { borderColor: borderColor || 'rgba(0, 45, 82, 0.6)' }
-      ]}
-      {...rest}
+      style={styles.button(borderColor)}
     >
       <View style={styles.content}>
         <Logo style={styles.icon} />
-        <Text style={[
-          styles.text,
-          { color: color || 'rgba(0, 0, 0, 0.6)' }
-        ]}
-        >
+        <Text style={styles.text(color)}>
           {text}
         </Text>
       </View>
@@ -24,7 +16,7 @@ export default function OAuthButton({ borderColor, text, Logo, color, ...rest })
 }
 
 const styles = StyleSheet.create({
-  button: {
+  button: (borderColor) => ({
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -32,7 +24,8 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 20,
     borderWidth: 1,
-  },
+    borderColor: borderColor || 'rgba(0, 45, 82, 0.6)',
+  }),
   content: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -43,9 +36,9 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
   },
-  text: {
-    color: '#FFFFFF',
+  text: (color) => ({
+    color: color || 'rgba(0, 0, 0, 0.6)',
     fontSize: 20,
     fontFamily: 'gg sans regular',
-  },
+  }),
 });

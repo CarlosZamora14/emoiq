@@ -13,12 +13,10 @@ import Animated, {
 } from "react-native-reanimated";
 
 // Components
-import Button from '../components/Button.js';
-import Login from '../components/Login.js';
-import Signup from '../components/Signup.js';
+import { Button, Login, Signup } from '../components';
 
 // Assets
-import backgroundImage from '../assets/background.png';
+import { images } from '../constants';
 
 export default function WelcomeScreen(props) {
   const [isLoginSelected, setIsLoginSelected] = useState(true);
@@ -56,7 +54,7 @@ export default function WelcomeScreen(props) {
   return (
     <SafeAreaView onLayout={props.onLayout} style={{ flex: 1 }}>
       <GestureHandlerRootView style={styles.container}>
-        <Image source={backgroundImage} style={styles.background} />
+        <Image source={images.background} style={styles.background} />
         <View style={styles.welcomeMessage}>
           <View style={{ height: 180, backgroundColor: 'rgba(0, 0, 0, 0.7)', paddingTop: 24 }}>
             <MaskedView
@@ -67,7 +65,7 @@ export default function WelcomeScreen(props) {
                 </View>
               }
             >
-              <Image source={backgroundImage} style={[styles.background, { opacity: 0.9 }]} />
+              <Image source={images.background} style={[styles.background, { opacity: 0.9 }]} />
             </MaskedView>
           </View>
           <LinearGradient
@@ -89,7 +87,7 @@ export default function WelcomeScreen(props) {
         >
           <Button
             text='Iniciar sesión'
-            onPress={() => {
+            onHandlePress={() => {
               setIsLoginSelected(true);
               bottomSheetRef.current.expand();
               fadeOut();
@@ -98,7 +96,7 @@ export default function WelcomeScreen(props) {
           <Button
             text='Registrarse'
             backgroundColor='#002D52'
-            onPress={() => {
+            onHandlePress={() => {
               setIsLoginSelected(false);
               bottomSheetRef.current.expand();
               fadeOut();
