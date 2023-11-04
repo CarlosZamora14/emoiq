@@ -21,7 +21,7 @@ import { images } from '../constants';
 export default function WelcomeScreen(props) {
   const [isLoginSelected, setIsLoginSelected] = useState(true);
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ['50%', '70%'], []);
+  const snapPoints = useMemo(() => ['50%', '74%'], []);
 
   const fadeInOpacity = useSharedValue(1);
 
