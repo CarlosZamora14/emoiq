@@ -8,7 +8,7 @@ import OAuthButton from './OAuthButton.js';
 import InputField from './InputField.js';
 import Button from './Button.js';
 
-export default function Signup(props) {
+export default function Signup({ navigation }) {
   return (
     <View style={styles.formWrapper}>
       <View style={styles.formContainer}>
@@ -26,7 +26,7 @@ export default function Signup(props) {
           placeholder="Repite tu contraseña"
           isPassword
         />
-        <Button text="Registrarse" />
+        <Button text="Registrarse" onHandlePress={() => navigation.navigate('Home')} />
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center', width: '80%', paddingVertical: SIZES.small / 3 }}>
@@ -41,8 +41,8 @@ export default function Signup(props) {
         <Text style={styles.text}>Inicia sesión</Text>
       </View>
       <View style={styles.OAuthWrapper}>
-        <OAuthButton Logo={icons.FacebookLogo} text='Facebook' />
-        <OAuthButton Logo={icons.GoogleLogo} text='Google' />
+        <OAuthButton Logo={icons.FacebookLogo} text="Facebook" />
+        <OAuthButton Logo={icons.GoogleLogo} text="Google" />
       </View>
     </View>
   );

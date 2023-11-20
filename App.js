@@ -4,8 +4,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Screens
-import WelcomeScreen from './screens/WelcomeScreen.js';
+// Navigation
+import Navigation from './Navigation.js';
 
 SplashScreen.preventAutoHideAsync();
 const Stack = createNativeStackNavigator();
@@ -28,13 +28,15 @@ export default function App() {
     return null;
   }
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Welcome'>
-        <Stack.Screen name='Welcome' options={{ headerShown: false }}>
-          {props => <WelcomeScreen {...props} onLayout={onLayoutRootView} />}
-        </Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer >
-  );
+  return <Navigation onLayoutRootView={onLayoutRootView} />;
+
+  // return (
+  //   <NavigationContainer>
+  //     <Stack.Navigator initialRouteName="Welcome">
+  //       <Stack.Screen name="Welcome" options={{ headerShown: false }}>
+  //         {props => <WelcomeScreen {...props} onLayout={onLayoutRootView} />}
+  //       </Stack.Screen>
+  //     </Stack.Navigator>
+  //   </NavigationContainer >
+  // );
 }

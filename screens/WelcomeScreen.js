@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
   Easing,
   useAnimatedStyle,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 // Components
 import { Button, Login, Signup } from '../components';
@@ -86,7 +86,7 @@ export default function WelcomeScreen(props) {
           ]}
         >
           <Button
-            text='Iniciar sesión'
+            text="Iniciar sesión"
             onHandlePress={() => {
               setIsLoginSelected(true);
               bottomSheetRef.current.expand();
@@ -94,8 +94,8 @@ export default function WelcomeScreen(props) {
             }}
           />
           <Button
-            text='Registrarse'
-            backgroundColor='#002D52'
+            text="Registrarse"
+            backgroundColor="#002D52"
             onHandlePress={() => {
               setIsLoginSelected(false);
               bottomSheetRef.current.expand();
@@ -104,7 +104,7 @@ export default function WelcomeScreen(props) {
           />
         </Animated.View>
 
-        <StatusBar style='auto' />
+        <StatusBar style="auto" />
 
         <BottomSheet
           ref={bottomSheetRef}
@@ -118,7 +118,7 @@ export default function WelcomeScreen(props) {
           }}
           onChange={handleSheetChanges}
         >
-          {isLoginSelected ? <Login /> : <Signup />}
+          {isLoginSelected ? <Login navigation={props.navigation} /> : <Signup navigation={props.navigation} />}
         </BottomSheet>
       </GestureHandlerRootView>
     </SafeAreaView>

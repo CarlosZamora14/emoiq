@@ -8,7 +8,7 @@ import OAuthButton from './OAuthButton.js';
 import InputField from './InputField.js';
 import Button from './Button.js';
 
-export default function Login(props) {
+export default function Login({ navigation }) {
   return (
     <View style={styles.formWrapper}>
       <View style={styles.formContainer}>
@@ -20,7 +20,7 @@ export default function Login(props) {
           label="Contraseña"
           placeholder="Ingrese su contraseña"
         />
-        <Button text="Iniciar sesión" />
+        <Button text="Iniciar sesión" onHandlePress={() => navigation.navigate('Home')} />
       </View>
 
       <View style={{ alignItems: 'flex-start', width: '80%', alignSelf: 'center', marginTop: SIZES.small / 2, marginBottom: SIZES.small }}>
@@ -39,8 +39,8 @@ export default function Login(props) {
         <Text style={styles.text}>Inicia sesión</Text>
       </View>
       <View style={styles.OAuthWrapper}>
-        <OAuthButton Logo={icons.FacebookLogo} text='Facebook' />
-        <OAuthButton Logo={icons.GoogleLogo} text='Google' />
+        <OAuthButton Logo={icons.FacebookLogo} text="Facebook" />
+        <OAuthButton Logo={icons.GoogleLogo} text="Google" />
       </View>
     </View>
   );
